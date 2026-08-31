@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Primary Meta Tags -->
-  <meta name="title" content="Dense Matchers for Dense Object Reconstruction">
-  <meta name="description" content="A zero-shot, image-based framework: dense matching selects a minimal set of object keyframes and Structure-from-Motion recovers a semi-dense point cloud with metric camera poses.">
-  <meta name="keywords" content="dense matching, object reconstruction, structure-from-motion, 6DoF pose estimation, keyframe selection, view graph, zero-shot, computer vision">
+  <meta name="title" content="OMa: Dense Object Matching for Dense Reconstruction">
+  <meta name="description" content="OMa is an object-centric reconstruction pipeline: a mask-robust dense matcher and correspondence-based Structure-from-Motion recover a rigid object's point cloud and object-relative camera poses from an RGB video, using foreground correspondences alone.">
+  <meta name="keywords" content="dense matching, object reconstruction, structure-from-motion, foreground-only, keyframe selection, view graph, 6DoF pose, unseen object, model-free onboarding, computer vision">
   <meta name="author" content="Tomáš Jelínek, Dmytro Mishkin, Jiří Matas">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
@@ -15,24 +15,23 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Visual Recognition Group, CTU in Prague">
-  <meta property="og:title" content="Dense Matchers for Dense Object Reconstruction">
-  <meta property="og:description" content="A zero-shot, image-based framework: dense matching selects a minimal set of object keyframes and Structure-from-Motion recovers a semi-dense point cloud with metric camera poses.">
-  <meta property="og:url" content="https://tjelinek.github.io/glopose-page/">
-  <!-- TODO(asset): create a 1200x630 social_preview.png teaser. -->
-  <meta property="og:image" content="https://tjelinek.github.io/glopose-page/static/images/social_preview.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Dense Matchers for Dense Object Reconstruction — teaser">
+  <meta property="og:title" content="OMa: Dense Object Matching for Dense Reconstruction">
+  <meta property="og:description" content="An object-centric reconstruction pipeline: a mask-robust dense matcher and correspondence-based SfM recover a rigid object's point cloud and object-relative camera poses from RGB video, using foreground correspondences alone.">
+  <meta property="og:url" content="https://tjelinek.github.io/oma/">
+  <meta property="og:image" content="https://tjelinek.github.io/oma/static/images/teaser.png">
+  <meta property="og:image:width" content="1816">
+  <meta property="og:image:height" content="645">
+  <meta property="og:image:alt" content="OMa teaser: selected keyframes (left) and the reconstructed object point cloud with object-relative camera poses (right).">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Dense Matchers for Dense Object Reconstruction">
-  <meta name="twitter:description" content="A zero-shot, image-based framework: dense matching selects a minimal set of object keyframes and Structure-from-Motion recovers a semi-dense point cloud with metric camera poses.">
-  <meta name="twitter:image" content="https://tjelinek.github.io/glopose-page/static/images/social_preview.png">
+  <meta name="twitter:title" content="OMa: Dense Object Matching for Dense Reconstruction">
+  <meta name="twitter:description" content="An object-centric reconstruction pipeline that recovers a rigid object's point cloud and object-relative camera poses from RGB video, using foreground correspondences alone.">
+  <meta name="twitter:image" content="https://tjelinek.github.io/oma/static/images/teaser.png">
 
   <!-- Academic/Research Specific -->
   <!-- TODO(meta): add citation_pdf_url + venue once the paper is public. -->
-  <meta name="citation_title" content="Dense Matchers for Dense Object Reconstruction">
+  <meta name="citation_title" content="OMa: Dense Object Matching for Dense Reconstruction">
   <meta name="citation_author" content="Jelínek, Tomáš">
   <meta name="citation_author" content="Mishkin, Dmytro">
   <meta name="citation_author" content="Matas, Jiří">
@@ -47,7 +46,7 @@
   <link rel="preconnect" href="https://ajax.googleapis.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
-  <title>Dense Matchers for Dense Object Reconstruction</title>
+  <title>OMa: Dense Object Matching for Dense Reconstruction</title>
 
   <!-- No favicon (intentionally blank tab icon) -->
   <link rel="icon" href="data:,">
@@ -82,8 +81,8 @@
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
-    "headline": "Dense Matchers for Dense Object Reconstruction",
-    "description": "A zero-shot, image-based framework: dense matching selects a minimal set of object keyframes and Structure-from-Motion recovers a semi-dense point cloud with metric camera poses.",
+    "headline": "OMa: Dense Object Matching for Dense Reconstruction",
+    "description": "An object-centric reconstruction pipeline: a mask-robust dense matcher and correspondence-based Structure-from-Motion recover a rigid object's point cloud and object-relative camera poses from an RGB video, using foreground correspondences alone.",
     "author": [
       { "@type": "Person", "name": "Tomáš Jelínek",
         "affiliation": { "@type": "Organization", "name": "Czech Technical University in Prague" } },
@@ -93,7 +92,7 @@
         "affiliation": { "@type": "Organization", "name": "Czech Technical University in Prague" } }
     ],
     "datePublished": "2026",
-    "url": "https://tjelinek.github.io/glopose-page/",
+    "url": "https://tjelinek.github.io/oma/",
     "isAccessibleForFree": true,
     "license": "https://creativecommons.org/licenses/by/4.0/"
   }
@@ -112,7 +111,7 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Dense Matchers for Dense Object Reconstruction</h1>
+            <h1 class="title is-1 publication-title">OMa: Dense Object Matching for Dense Reconstruction</h1>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
                 <a href="https://tjelinek.github.io" target="_blank">Tomáš Jelínek</a>,</span>
@@ -124,12 +123,12 @@
 
             <div class="is-size-5 publication-authors">
               <span class="author-block">Visual Recognition Group, Czech Technical University in Prague</span>
-              <!-- TODO(venue): set the venue once decided (paper is a WACV 2026 submission). -->
+              <!-- TODO(venue): set the venue once decided / accepted. Paper is currently under review. -->
             </div>
 
             <div class="column has-text-centered">
               <div class="publication-links">
-                <!-- TODO(arxiv): update with arXiv id / PDF when available. -->
+                <!-- TODO(arxiv): wire the Paper / arXiv buttons once the preprint is public. -->
                 <span class="link-block">
                   <a href="#" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
@@ -164,19 +163,19 @@
 </section>
 
 
-<!-- Teaser placeholder -->
+<!-- Teaser -->
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <!-- TODO(asset): drop a teaser figure at static/images/teaser.png (and a banner video at
-           static/videos/banner_video.mp4) and replace this placeholder block.
-           Candidate source figures live in the paper repo: glopose-paper/imgs/ and glopose-paper/figs/. -->
-      <div class="content has-text-centered" style="border:2px dashed #cbd5e1;border-radius:12px;padding:3rem 1rem;color:#64748b;">
-        <p><i class="fas fa-image"></i>&nbsp; Teaser figure coming soon.</p>
-      </div>
-      <h2 class="subtitle has-text-centered">
-        From an onboarding video, a matchability criterion selects a minimal keyframe set; a
-        Structure-from-Motion pipeline then recovers a semi-dense point cloud with metric camera poses.
+      <img src="static/images/teaser.png"
+           alt="OMa teaser: selected keyframes on the left, reconstructed object point cloud with object-relative camera poses on the right."
+           style="width:100%;border-radius:10px;"/>
+      <h2 class="subtitle has-text-centered" style="margin-top:1rem;">
+        <b>Reconstructing an object from a video capture.</b>
+        <b>Left:</b> keyframes chosen online by a matchability criterion.
+        <b>Right:</b> the reconstructed object point cloud with camera poses relative to the object (up to scale).
+        The background is replaced with solid black at every stage of the pipeline; it is kept here for
+        illustration only. Example: HOPEv2 <code>obj_000001</code>.
       </h2>
     </div>
   </div>
@@ -191,15 +190,19 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present a zero-shot, image-based framework for object representation appropriate for
-            pose estimation, tracking, or self-relocalization. Our method assumes an RGB input video
-            capturing the object, with an annotation of the object's pose in the first frame together
-            with a segmentation mask. It selects a minimalistic image-based representation of the
-            object from the onboarding video frames in an online fashion, based on a matching score.
-            Subsequently, we use a Structure-from-Motion pipeline to recover the semi-dense point cloud
-            and metric camera poses aligned with the reference image pose. We demonstrate that the
-            representation is sufficient for various tasks, such as unseen object pose estimation, 6DoF
-            pose tracking, or self-relocalization.
+            We introduce <b>OMa</b> (Object Matching), an object-centric reconstruction pipeline based on
+            dense matching and correspondence-based Structure-from-Motion. OMa fine-tunes a dense matcher on
+            synthetic render pairs whose background pixels are zeroed, so the mask localizes the object for
+            the matcher, and reconstructs using only correspondences within the propagated masks. Its pose
+            accuracy degrades only moderately after background removal. We benchmark our method against the
+            state-of-the-art feed-forward static-scene reconstructors VGGT, MASt3R, MapAnything, and
+            &pi;<sup>3</sup>. In the foreground-only scenario, the strongest competing feed-forward method
+            collapses on HANDAL (37.86&deg;&nbsp;/&nbsp;15.93&nbsp;cm) and loses accuracy on HOPEv2
+            (6.68&deg;&nbsp;/&nbsp;1.89&nbsp;cm), and remains competitive only on NAVI at
+            2.82&deg;&nbsp;/&nbsp;1.50&nbsp;cm, while being competitive on the background-retained sequences.
+            Because OMa uses foreground correspondences alone, the foreground-only regime extends to objects
+            that move independently of the scene. There, OMa attains the highest F-score on HANDAL and, with
+            the background visible, on HOPEv2.
           </p>
         </div>
       </div>
@@ -209,14 +212,75 @@
 <!-- End paper abstract -->
 
 
+<!-- Method overview -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">How it works</h2>
+        <div class="content has-text-justified">
+          <p>
+            OMa takes an RGB video of a single rigid object with known camera intrinsics and a segmentation
+            mask of the object in the first frame. It outputs the object's 3D point cloud and the camera
+            poses relative to the object (up to a similarity transform), without depth, a 3D template,
+            category priors, or object-specific training.
+          </p>
+          <ol>
+            <li>
+              <b>Mask propagation.</b> The first-frame mask is propagated through the video with the
+              off-the-shelf tracker SAM2; foreground refers to the pixels inside these masks.
+            </li>
+            <li>
+              <b>Foreground correspondence.</b> A dense matcher (UFM) estimates dense flow and per-pixel
+              certainty between frames. We keep only confident foreground-to-foreground matches. The matcher
+              is <i>fine-tuned on masked synthetic render pairs</i> (background zeroed), so it stays accurate
+              on texture-poor object interiors without background cues.
+            </li>
+            <li>
+              <b>Causal keyframe selection.</b> A matchability criterion selects keyframes and relocalizes
+              frames online, during capture, without future observations or exhaustive all-pairs matching,
+              and builds the viewgraph for reconstruction.
+            </li>
+            <li>
+              <b>Reconstruction.</b> The surviving foreground correspondences are chained into multi-view
+              tracks and passed to robust, incremental correspondence-based Structure-from-Motion, which
+              recovers the object point cloud and object-relative camera poses.
+            </li>
+          </ol>
+
+          <h3 class="title is-5">Contributions</h3>
+          <ul>
+            <li>
+              <b>Template-free object-centric reconstruction.</b> Recover a previously unseen rigid object's
+              point cloud and object-relative camera poses from RGB video and a first-frame mask, with no
+              depth, 3D template, category priors, or object-specific training.
+            </li>
+            <li>
+              <b>Foreground-only reconstruction.</b> Dense-matching-based SfM stays accurate where the
+              evaluated feed-forward reconstructors deteriorate after background removal; because it relies
+              on foreground correspondences alone, it extends to objects that move independently of the
+              scene (for example, a hand-held object).
+            </li>
+            <li>
+              <b>Causal frame selection.</b> A matchability-based criterion selects keyframes and
+              relocalizes online, an alternative to fixed every-<i>k</i> subsampling and to offline
+              all-pairs selection.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End method overview -->
+
+
 <!-- =====================================================================
-     MEDIA SECTIONS (commented out until real assets exist).
-     Re-enable and fill in once teaser/result images and videos are ready.
-     Source figures available in the paper repo: glopose-paper/imgs/, glopose-paper/figs/.
+     MEDIA SECTIONS (commented out until real result assets exist).
+     Re-enable and fill in once qualitative result images/videos are ready.
+     Source figures available in the paper repo: glopose-paper/figs/gallery/.
        - Image carousel:  static/images/carousel{1..4}.jpg
        - Video carousel:  static/videos/carousel{1..3}.mp4
-       - YouTube talk:    embed id
-       - Poster:          static/pdfs/poster.pdf
      ===================================================================== -->
 <!--
 <section class="hero is-small">
@@ -244,13 +308,13 @@
           <span class="copy-text">Copy</span>
         </button>
       </div>
-      <!-- TODO(bibtex): update venue/booktitle once the paper is accepted/published. -->
-      <pre id="bibtex-code"><code>@misc{jelinek2026densematchers,
-  title  = {Dense Matchers for Dense Object Reconstruction},
+      <!-- TODO(bibtex): switch to the published @inproceedings entry once the paper is accepted. -->
+      <pre id="bibtex-code"><code>@misc{jelinek2026oma,
+  title  = {OMa: Dense Object Matching for Dense Reconstruction},
   author = {Jel\'inek, Tom\'a\v{s} and Mishkin, Dmytro and Matas, Ji\v{r}\'i},
   year   = {2026},
   note   = {Preprint},
-  url    = {https://tjelinek.github.io/glopose-page/}
+  url    = {https://tjelinek.github.io/oma/}
 }</code></pre>
     </div>
 </section>
