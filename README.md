@@ -27,7 +27,7 @@ git add -A && git commit -m "Update page" && git push
 
 Search `index.html` for `TODO(...)` markers (title/authors/abstract/method/BibTeX are filled from the paper):
 
-- `TODO(venue)` — set the venue once decided / accepted (paper is currently under review).
+- `TODO(venue)` — add the venue once the paper is public.
 - `TODO(arxiv)` — arXiv id, and wire the **Paper** / **arXiv** buttons (currently `href="#"`).
 - `TODO(bibtex)` — switch from the `@misc` preprint entry to the published `@inproceedings` on acceptance.
 - `TODO(meta)` — `citation_pdf_url` + venue once the paper is public.
