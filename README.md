@@ -23,13 +23,13 @@ git add -A && git commit -m "Update page" && git push
 > Note: this repo's `origin` uses **SSH** (`git@github.com:tjelinek/oma.git`) — the HTTPS
 > credential helper wasn't working on this machine.
 
-## TODO before submission / release
+## TODO for the release
 
 Search `index.html` for `TODO(...)` markers (title/authors/abstract/method/BibTeX are filled from the paper):
 
 - `TODO(venue)` — add the venue once the paper is public.
 - `TODO(arxiv)` — arXiv id, and wire the **Paper** / **arXiv** buttons (currently `href="#"`).
-- `TODO(bibtex)` — switch from the `@misc` preprint entry to the published `@inproceedings` on acceptance.
+- `TODO(bibtex)` — switch from the `@misc` preprint entry to the published `@inproceedings` once the paper is public.
 - `TODO(meta)` — `citation_pdf_url` + venue once the paper is public.
 - Result gallery — the media carousel is commented out until qualitative result assets exist.
   Source figures live in the paper repo: `glopose-paper/figs/gallery/`.
