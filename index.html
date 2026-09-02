@@ -276,26 +276,192 @@
 
 
 <!-- =====================================================================
-     MEDIA SECTIONS (commented out until real result assets exist).
-     Re-enable and fill in once qualitative result images/videos are ready.
-     Source figures available in the paper repo: glopose-paper/figs/gallery/.
-       - Image carousel:  static/images/carousel{1..4}.jpg
-       - Video carousel:  static/videos/carousel{1..3}.mp4
+     RESULT GALLERIES. Panels are the paper's renders, copied verbatim from
+     glopose-paper/figs/gallery/ into static/images/gallery/.
+     Static rows: hs HANDAL (funnel), ps HOPEv2 (cookies box), na NAVI (bull).
+     Dynamic objects: hd HANDAL obj_000022 (drill), pd HOPEv2 obj_000006.
      ===================================================================== -->
-<!--
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item">
-          <img src="static/images/carousel1.jpg" alt="Result 1" loading="lazy"/>
-          <h2 class="subtitle has-text-centered">First result.</h2>
+<style>
+  .gal-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table.gal { border-collapse: collapse; margin: 0 auto; min-width: 640px; }
+  table.gal th { font-weight: 600; font-size: 0.95rem; padding: 0.25rem 0.2rem; text-align: center; vertical-align: bottom; }
+  table.gal td { padding: 1px; text-align: center; vertical-align: middle; }
+  table.gal img { display: block; width: 100%; height: auto; }
+  .gal-panel { width: 15.4%; }
+  .gal-rowlab { width: 7%; font-size: 0.9rem; font-weight: 600; line-height: 1.15; text-align: right; padding-right: 0.5rem !important; }
+  .gal-score { font-size: 0.82rem; padding-top: 0 !important; padding-bottom: 0.5rem !important; }
+  .gal-best { color: #2563eb; font-weight: 700; }
+  .gal-dim { color: #8a8a8a; }
+  .gal-in { width: 19%; }
+  .gal-cap { font-size: 0.82rem; color: #4a4a4a; padding-top: 0 !important; }
+  .gal-note { font-size: 0.95rem; color: #4a4a4a; }
+</style>
+
+<!-- Static results -->
+<section class="section" id="results-static">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3 has-text-centered">Results: static capture</h2>
+    <p class="has-text-centered gal-note" style="margin-bottom:1.5rem;">
+      One representative object per dataset. Columns compare OMa against feed-forward
+      reconstructors, with the textured ground-truth mesh at the right. The baselines
+      reconstruct from every 8th video frame, OMa from its selected keyframes, all with the
+      background masked to black. Point clouds are pose-aligned to the ground-truth mesh.
+    </p>
+
+    <div class="gal-wrap">
+      <table class="gal">
+        <thead>
+          <tr>
+            <th></th>
+            <th>OMa (ours)</th><th>VGGT</th><th>MASt3R</th>
+            <th>MapAnything</th><th>&pi;<sup>3</sup></th><th>GT mesh</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- HANDAL static -->
+          <tr>
+            <td class="gal-rowlab">HANDAL<br>static</td>
+            <td class="gal-panel"><img src="static/images/gallery/hs_ours.png" alt="OMa reconstruction, HANDAL static" loading="lazy"></td>
+            <td class="gal-panel"><img src="static/images/gallery/hs_vggt.png" alt="VGGT reconstruction, HANDAL static" loading="lazy"></td>
+            <td class="gal-panel"><img src="static/images/gallery/hs_mast3r.png" alt="MASt3R reconstruction, HANDAL static" loading="lazy"></td>
+            <td class="gal-panel"><img src="static/images/gallery/hs_mapany.png" alt="MapAnything reconstruction, HANDAL static" loading="lazy"></td>
+            <td class="gal-panel"><img src="static/images/gallery/hs_pi3.png" alt="Pi3 reconstruction, HANDAL static" loading="lazy"></td>
+            <td class="gal-panel"><img src="static/images/gallery/hs_gt.png" alt="Ground-truth mesh, HANDAL static" loading="lazy"></td>
+          </tr>
+          <tr class="gal-score">
+            <td></td>
+            <td class="gal-best">F@5&nbsp;0.27</td><td class="gal-dim">0.03</td><td class="gal-dim">0.01</td>
+            <td class="gal-dim">0.02</td><td class="gal-dim">0.09</td><td></td>
+          </tr>
+          <!-- HOPE static -->
+          <tr>
+            <td class="gal-rowlab">HOPEv2<br>static</td>
+            <td class="gal-panel"><img src="static/images/gallery/ps_ours.png" alt="OMa reconstruction, HOPEv2 static" loading="lazy"></td>
+            <td class="gal-panel"><img src="static/images/gallery/ps_vggt.png" alt="VGGT reconstruction, HOPEv2 static" loading="lazy"></td>
+            <td class="gal-panel"><img src="static/images/gallery/ps_mast3r.png" alt="MASt3R reconstruction, HOPEv2 static" loading="lazy"></td>
+            <td class="gal-panel"><img src="static/images/gallery/ps_mapany.png" alt="MapAnything reconstruction, HOPEv2 static" loading="lazy"></td>
+            <td class="gal-panel"><img src="static/images/gallery/ps_pi3.png" alt="Pi3 reconstruction, HOPEv2 static" loading="lazy"></td>
+            <td class="gal-panel"><img src="static/images/gallery/ps_gt.png" alt="Ground-truth mesh, HOPEv2 static" loading="lazy"></td>
+          </tr>
+          <tr class="gal-score">
+            <td></td>
+            <td class="gal-best">F@5&nbsp;0.79</td><td class="gal-dim">0.30</td><td class="gal-dim">0.28</td>
+            <td class="gal-dim">0.27</td><td class="gal-dim">0.50</td><td></td>
+          </tr>
+          <!-- NAVI static -->
+          <tr>
+            <td class="gal-rowlab">NAVI<br>static</td>
+            <td class="gal-panel"><img src="static/images/gallery/na_ours.png" alt="OMa reconstruction, NAVI static" loading="lazy"></td>
+            <td class="gal-panel"><img src="static/images/gallery/na_vggt.png" alt="VGGT reconstruction, NAVI static" loading="lazy"></td>
+            <td class="gal-panel"><img src="static/images/gallery/na_mast3r.png" alt="MASt3R reconstruction, NAVI static" loading="lazy"></td>
+            <td class="gal-panel"><img src="static/images/gallery/na_mapany.png" alt="MapAnything reconstruction, NAVI static" loading="lazy"></td>
+            <td class="gal-panel"><img src="static/images/gallery/na_pi3.png" alt="Pi3 reconstruction, NAVI static" loading="lazy"></td>
+            <td class="gal-panel"><img src="static/images/gallery/na_gt.png" alt="Ground-truth mesh, NAVI static" loading="lazy"></td>
+          </tr>
+          <tr class="gal-score">
+            <td></td>
+            <td class="gal-best">F@5&nbsp;0.70</td><td class="gal-dim">0.48</td><td class="gal-dim">0.25</td>
+            <td class="gal-dim">0.30</td><td class="gal-best">0.70</td><td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="has-text-centered gal-note" style="margin-top:1rem;">
+      F@5 is the mean fraction of reconstructed points within 5&nbsp;mm of the ground-truth
+      mesh, aggregated per dataset over the masked-input arm. OMa recovers the object shape
+      where the feed-forward baselines fragment or collapse.
+    </p>
+  </div>
+</section>
+<!-- End static results -->
+
+<!-- Dynamic results -->
+<section class="section hero is-light" id="results-dynamic">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3 has-text-centered">Results: dynamic, hand-held capture</h2>
+    <p class="has-text-centered gal-note" style="margin-bottom:1.5rem;">
+      Here the object moves independently of the camera and the background, and a hand
+      occludes it. For each object, the top strip shows frames of the capture and the grid
+      below shows the reconstructions. OMa uses its adaptive keyframes, the baselines every
+      <i>k</i>-th frame, giving 20 to 25 keyframes.
+    </p>
+
+    <div class="columns">
+      <!-- HANDAL dynamic -->
+      <div class="column is-half">
+        <h3 class="title is-5 has-text-centered">HANDAL <code>obj_000022</code> (drill)</h3>
+        <div class="gal-wrap">
+          <table class="gal" style="min-width:360px;">
+            <tr>
+              <td class="gal-in"><img src="static/images/gallery/hd_in_0.png" alt="Input frame 1, HANDAL dynamic" loading="lazy"></td>
+              <td class="gal-in"><img src="static/images/gallery/hd_in_1.png" alt="Input frame 2, HANDAL dynamic" loading="lazy"></td>
+              <td class="gal-in"><img src="static/images/gallery/hd_in_2.png" alt="Input frame 3, HANDAL dynamic" loading="lazy"></td>
+              <td class="gal-in"><img src="static/images/gallery/hd_in_3.png" alt="Input frame 4, HANDAL dynamic" loading="lazy"></td>
+              <td class="gal-in"><img src="static/images/gallery/hd_in_4.png" alt="Input frame 5, HANDAL dynamic" loading="lazy"></td>
+            </tr>
+            <tr><td class="gal-cap" colspan="5">Input video frames (uniformly sampled)</td></tr>
+          </table>
+        </div>
+        <div class="gal-wrap" style="margin-top:0.6rem;">
+          <table class="gal" style="min-width:360px;">
+            <tr>
+              <td style="width:33.3%"><img src="static/images/gallery/hd_ours.png" alt="OMa reconstruction, HANDAL dynamic" loading="lazy"></td>
+              <td style="width:33.3%"><img src="static/images/gallery/hd_vggt.png" alt="VGGT reconstruction, HANDAL dynamic" loading="lazy"></td>
+              <td style="width:33.3%"><img src="static/images/gallery/hd_mast3r.png" alt="MASt3R reconstruction, HANDAL dynamic" loading="lazy"></td>
+            </tr>
+            <tr class="gal-cap"><td><b>OMa (ours)</b></td><td>VGGT</td><td>MASt3R</td></tr>
+            <tr>
+              <td><img src="static/images/gallery/hd_mapany.png" alt="MapAnything reconstruction, HANDAL dynamic" loading="lazy"></td>
+              <td><img src="static/images/gallery/hd_pi3.png" alt="Pi3 reconstruction, HANDAL dynamic" loading="lazy"></td>
+              <td><img src="static/images/gallery/hd_gt.png" alt="Ground-truth mesh, HANDAL dynamic" loading="lazy"></td>
+            </tr>
+            <tr class="gal-cap"><td>MapAnything</td><td>&pi;<sup>3</sup></td><td>GT mesh</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- HOPE dynamic -->
+      <div class="column is-half">
+        <h3 class="title is-5 has-text-centered">HOPEv2 <code>obj_000006</code> (cookies box)</h3>
+        <div class="gal-wrap">
+          <table class="gal" style="min-width:360px;">
+            <tr>
+              <td class="gal-in"><img src="static/images/gallery/pd_in_0.png" alt="Input frame 1, HOPEv2 dynamic" loading="lazy"></td>
+              <td class="gal-in"><img src="static/images/gallery/pd_in_1.png" alt="Input frame 2, HOPEv2 dynamic" loading="lazy"></td>
+              <td class="gal-in"><img src="static/images/gallery/pd_in_2.png" alt="Input frame 3, HOPEv2 dynamic" loading="lazy"></td>
+              <td class="gal-in"><img src="static/images/gallery/pd_in_3.png" alt="Input frame 4, HOPEv2 dynamic" loading="lazy"></td>
+              <td class="gal-in"><img src="static/images/gallery/pd_in_4.png" alt="Input frame 5, HOPEv2 dynamic" loading="lazy"></td>
+            </tr>
+            <tr><td class="gal-cap" colspan="5">Input video frames (uniformly sampled)</td></tr>
+          </table>
+        </div>
+        <div class="gal-wrap" style="margin-top:0.6rem;">
+          <table class="gal" style="min-width:360px;">
+            <tr>
+              <td style="width:33.3%"><img src="static/images/gallery/pd_ours.png" alt="OMa reconstruction, HOPEv2 dynamic" loading="lazy"></td>
+              <td style="width:33.3%"><img src="static/images/gallery/pd_vggt.png" alt="VGGT reconstruction, HOPEv2 dynamic" loading="lazy"></td>
+              <td style="width:33.3%"><img src="static/images/gallery/pd_mast3r.png" alt="MASt3R reconstruction, HOPEv2 dynamic" loading="lazy"></td>
+            </tr>
+            <tr class="gal-cap"><td><b>OMa (ours)</b></td><td>VGGT</td><td>MASt3R</td></tr>
+            <tr>
+              <td><img src="static/images/gallery/pd_mapany.png" alt="MapAnything reconstruction, HOPEv2 dynamic" loading="lazy"></td>
+              <td><img src="static/images/gallery/pd_pi3.png" alt="Pi3 reconstruction, HOPEv2 dynamic" loading="lazy"></td>
+              <td><img src="static/images/gallery/pd_gt.png" alt="Ground-truth mesh, HOPEv2 dynamic" loading="lazy"></td>
+            </tr>
+            <tr class="gal-cap"><td>MapAnything</td><td>&pi;<sup>3</sup></td><td>GT mesh</td></tr>
+          </table>
         </div>
       </div>
     </div>
+
+    <p class="has-text-centered gal-note" style="margin-top:1rem;">
+      The dynamic setting remains hard: reconstruction succeeds for some objects, but
+      robustness is limited for all methods, including ours.
+    </p>
   </div>
 </section>
--->
+<!-- End dynamic results -->
 
 
 <!--BibTex citation -->
