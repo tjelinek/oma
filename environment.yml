@@ -1,0 +1,47 @@
+name: oma
+channels:
+  - conda-forge
+  - nvidia
+  - pytorch
+channel_priority: strict
+dependencies:
+  - python=3.13
+  - pip
+  - numpy>=2
+  - kaolin>=0.17
+  - pandas
+  - pillow
+  - matplotlib
+  - networkx
+  - scipy
+  - imageio
+  - tqdm
+  - git
+  - openssl
+  - krb5
+  - ca-certificates
+  - pip:
+      - pycolmap==3.13.0
+      - kornia
+      - kornia_moons
+      - wandb
+      - huggingface_hub
+      - "rerun-sdk>=0.22"
+      - trimesh
+      - opencv-python
+      - einops
+      - safetensors
+      - pypng
+      - pytz
+      - webdataset
+      - PyOpenGL
+      - vispy
+      - torchvision
+      - gdown
+      - "bop_toolkit_lib @ git+https://github.com/thodan/bop_toolkit.git"
+      - "pycocotools @ git+https://github.com/MartinSmeyer/cocoapi.git#subdirectory=PythonAPI"
+      - "segment-anything @ git+https://github.com/facebookresearch/segment-anything.git"
+      - "-e git+https://github.com/Parskatt/RoMa.git#egg=romatch"
+      - "-e git+https://github.com/UniFlowMatch/UFM.git#subdirectory=UniCeption&egg=uniception"
+      - "-e git+https://github.com/UniFlowMatch/UFM.git#egg=uniflowmatch"
+      - "-e git+https://github.com/facebookresearch/sam2.git#egg=sam-2"
