@@ -62,8 +62,7 @@ git clone https://github.com/yyfz/Pi3.git
 
 A CUDA GPU is required. All experiments in the paper ran on a single NVIDIA A100. The dense
 matchers (UFM, RoMa) are large models, so plan for a data-center-class or a recent high-memory
-consumer GPU. Known issue: on V100 (sm_70) the current PyTorch builds lack a cuDNN engine for
-some transposed convolutions and UFM/RoMa crash inside the matcher forward pass; use a newer GPU.
+consumer GPU.
 
 ## Model weights
 
